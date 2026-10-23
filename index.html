@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RafaSeller Tools</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f5f9;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .kartu {
+      max-width: 420px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px #00000015;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1769aa;
+    }
+
+    p {
+      text-align: center;
+      color: #555;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: #1769aa;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    #hasil {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f4ff;
+      border-radius: 8px;
+      line-height: 1.8;
+    }
+    
+/* RafaSeller Tools - Tampilan lebih rapi */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: #f4f7f5;
+  color: #1f2937;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  line-height: 1.3;
+  color: #14532d;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+  font: inherit;
+  border-radius: 10px;
+}
+
+input,
+select,
+textarea {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  background: #15803d;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  button {
+    min-height: 42px;
+  }
+}
+    
+/* Kartu dan bagian dashboard RafaSeller */
+section,
+.card,
+.stat-card,
+.dashboard-card {
+  border-radius: 14px;
+}
+
+.card,
+.stat-card,
+.dashboard-card {
+  padding: 16px;
+  margin-bottom: 14px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+}
+
+h2 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #86efac;
+  border-color: #15803d;
+}
+
+button:hover {
+  filter: brightness(0.95);
+  }
+   
+/* Daftar stok RafaSeller */
+#daftarStok {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#daftarStok > * {
+  min-width: 0;
+}
+
+#daftarStok button {
+  margin: 4px 2px;
+}
+
+@media (max-width: 360px) {
+  #daftarStok {
+    grid-template-columns: 1fr;
+  }
+}
+  
+/* Kartu produk RafaSeller */
+#daftarStok .kartu-produk {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+  overflow-wrap: anywhere;
+}
+
+#daftarStok .kartu-produk h3 {
+  margin-top: 0;
+  font-size: 17px;
+}
+
+#daftarStok .kartu-produk p {
+  margin: 8px 0;
+}
+
+#daftarStok .kartu-produk button {
+  width: 100%;
+  margin-top: 8px;
+    }
+  
+/* Penyempurnaan kartu produk untuk HP */
+#daftarStok .kartu-produk {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+}
+
+#daftarStok .kartu-produk h3 {
+  overflow-wrap: anywhere;
+  margin-bottom: 8px;
+}
+
+#daftarStok .kartu-produk button {
+  min-height: 44px;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+#daftarStok .kartu-produk button + button {
+  margin-top: 4px;
+}
+
+@media (max-width: 360px) {
+  #daftarStok {
+    grid-template-columns: 1fr;
+  }
+}
+   
+/* Riwayat transaksi RafaSeller */
+#riwayatStok {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+#riwayatStok p {
+  margin: 0;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #15803d;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+#riwayatStok:empty {
+  display: none;
+}
+    
+ 
+/* Tampilan Perbandingan Keuntungan Produk */
+#hasilBanding {
+  margin-top: 16px;
+  padding: 16px;
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #15803d;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+#hasilBanding h3 {
+  margin-top: 0;
+  color: #14532d;
+}
+
+#hasilBanding p {
+  margin: 8px 0;
+}
+
+#namaProduk,
+#modalBanding,
+#hargaBanding,
+#biayaBanding,
+#tambahanBanding {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 6px 0 12px;
+}
+
+#hasilBanding:empty {
+  display: none;
+}
+ 
+/* Formulir stok RafaSeller */
+#jenisTransaksi,
+#pilihProduk,
+#jumlahStok,
+#cariProduk {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 8px 0 14px;
+}
+
+#jumlahStok,
+#cariProduk {
+  padding: 12px;
+}
+
+#jenisTransaksi,
+#pilihProduk {
+  min-height: 44px;
+}
+
+#daftarStok .kartu-produk button {
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 10px;
+}
+
+button {
+  transition: filter 0.2s ease;
+}
+
+button:focus-visible {
+  outline: 3px solid #86efac;
+  outline-offset: 2px;
+  }
+
+/* Daftar hasil perbandingan seperti riwayat stok */
+#hasilBanding {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 14px;
+  background: #f4f7f5 !important;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+  overflow-wrap: anywhere;
+}
+
+#hasilBanding strong {
+  color: #14532d;
+}
+
+#hasilBanding .baris-hasil {
+  display: block;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #15803d;
+  border-radius: 10px;
+  line-height: 1.6;
+}
+
+#hasilBanding .peringkat {
+  font-weight: bold;
+  color: #14532d;
+  }
+    
+/* Grafik stok RafaSeller Tools */
+.kartu-grafik {
+  margin: 18px 0;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.kartu-grafik h3 {
+  margin-top: 0;
+  color: #14532d;
+}
+
+.kartu-grafik > p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+#grafikStok {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.baris-grafik {
+  min-width: 0;
+}
+
+.label-grafik {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.latar-grafik {
+  height: 12px;
+  overflow: hidden;
+  background: #e5e7eb;
+  border-radius: 20px;
+}
+
+.batang-grafik {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+    
+/* =================================
+   RAF A SELLER TOOLS - POLISH UI
+   ================================= */
+
+/* Latar dan ruang halaman */
+body {
+  background: #f3f7f4;
+  color: #1f2937;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Judul lebih konsisten */
+h1 {
+  color: #166534;
+  font-size: clamp(24px, 5vw, 32px);
+  margin-bottom: 8px;
+}
+
+h2 {
+  color: #166534;
+  font-size: 21px;
+  margin-top: 28px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dce7df;
+}
+
+h3 {
+  color: #166534;
+}
+
+/* Kartu dan bagian utama */
+.kartu,
+.card,
+.stat-card,
+.dashboard-card,
+.kartu-grafik {
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(22, 101, 52, 0.07);
+}
+
+/* Formulir lebih nyaman disentuh */
+input,
+select,
+textarea {
+  min-height: 44px;
+  border-radius: 10px;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+/* Tombol lebih konsisten */
+button {
+  min-height: 44px;
+  border-radius: 10px;
+  background: #15803d;
+  box-shadow: 0 2px 5px rgba(21, 128, 61, 0.12);
+  transition: background 0.2s ease,
+              transform 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+/* Kartu produk */
+#daftarStok .kartu-produk {
+  border-color: #e1e9e3;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.045);
+  overflow-wrap: anywhere;
+}
+
+#daftarStok .kartu-produk h3 {
+  color: #166534;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+#daftarStok .kartu-produk p {
+  text-align: left;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+/* Grafik */
+.kartu-grafik {
+  padding: 18px;
+  border-color: #e1e9e3;
+}
+
+.latar-grafik {
+  height: 13px;
+  background: #e5ece7;
+}
+
+.batang-grafik {
+  min-width: 0;
+}
+
+/* Riwayat transaksi */
+#riwayatStok p {
+  text-align: left;
+  border-color: #e1e9e3;
+  border-left: 4px solid #16a34a;
+  border-radius: 11px;
+  background: #ffffff;
+}
+
+/* Perbandingan keuntungan */
+#hasilBanding .baris-hasil {
+  border-color: #e1e9e3;
+  border-left: 4px solid #16a34a;
+  border-radius: 11px;
+}
+
+#hasilBanding p {
+  text-align: left;
+}
+
+/* Layar HP */
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  .kartu,
+  .card,
+  .stat-card,
+  .dashboard-card,
+  .kartu-grafik {
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+
+  #daftarStok {
+    gap: 10px;
+  }
+
+  #daftarStok .kartu-produk {
+    padding: 11px;
+  }
+
+  #daftarStok .kartu-produk button {
+    font-size: 13px;
+    padding: 9px 6px;
+  }
+}
+
+/* Hormati pengaturan pengurangan animasi */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  }
+    
+/* Kartu ringkas Dashboard RafaSeller */
+#totalProduk,
+#totalStok,
+#totalMasuk,
+#totalKeluar {
+  display: inline-block;
+  min-width: 48px;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-radius: 10px;
+  background: #dcfce7;
+  color: #14532d;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #bbf7d0;
+}
+
+/* Baris informasi dashboard */
+h2 + p,
+h2 + p ~ p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Peringatan stok */
+#peringatanStok {
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* Grafik stok */
+.kartu-grafik {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #d1fae5;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.kartu-grafik h3 {
+  margin-top: 0;
+  color: #14532d;
+}
+
+.kartu-grafik > p {
+  color: #64748b;
+  font-size: 14px;
+    }
+    
+/* Rapikan jarak informasi dashboard */
+#totalProduk,
+#totalStok,
+#totalMasuk,
+#totalKeluar {
+  vertical-align: middle;
+  margin-left: 5px;
+  box-sizing: border-box;
+}
+
+/* Jarak antarbaris dashboard */
+h2 + p,
+h2 + p ~ p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+    
+/* Perbaikan lebar Perbandingan Keuntungan di HP */
+#hasilBanding {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+#hasilBanding * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  #hasilBanding {
+    padding: 12px;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: hidden;
+  }
+
+  #hasilBanding input,
+  #hasilBanding select,
+  #hasilBanding button {
+    width: 100%;
+    min-width: 0;
+  }
+  }
+    
+  </style>
+</head>
+<body>
+  <div class="kartu">
+    <h1>RafaSeller Tools</h1>
+    <p>Kalkulator Keuntungan Penjual</p>
+
+<h2>Tambah Produk</h2>
+
+<label>Nama Produk</label>
+<input id="namaProdukBaru" type="text" placeholder="Contoh: Baju Anak">
+
+<label>Jumlah Stok Awal</label>
+<input id="stokAwalBaru" type="number" min="0" step="1" placeholder="Contoh: 20">
+<label>Harga Modal Produk (Rp)</label>
+<input
+  id="modalProdukBaru"
+  type="number"
+  min="0"
+  step="1"
+  placeholder="Contoh: 25000"
+>
+
+<label>Harga Jual Produk (Rp)</label>
+<input
+  id="hargaProdukBaru"
+  type="number"
+  min="0"
+  step="1"
+  placeholder="Contoh: 50000"
+>
+    
+<label>Status Produk</label>
+<select id="jenisProdukBaru">
+  <option value="utama">Produk Utama</option>
+  <option value="contoh">Produk Contoh (Bisa Dihapus)</option>
+</select>
+    
+<button onclick="tambahProdukBaru()">
+  Tambah Produk
+</button>
+
+<div id="pesanProduk"></div>
+    
+    
+    <label>Modal Produk (Rp)</label>
+    <input id="modal" type="number" placeholder="Contoh: 35000">
+
+    <label>Harga Jual (Rp)</label>
+    <input id="harga" type="number" placeholder="Contoh: 70000">
+
+    <label>Biaya Platform (%)</label>
+    <input id="biaya" type="number" value="10" min="0" max="100" step="0.1">
+
+    <label>Biaya Tambahan (Rp)</label>
+    <input id="tambahan" type="number" value="2000" min="0">
+
+    <button onclick="hitungUntung()">Hitung Keuntungan</button>
+
+    <div id="hasil">Hasil perhitungan akan muncul di sini.</div>
+  </div>
+
+<div class="kartu">
+  <h2>Dashboard RafaSeller</h2>
+
+  <p>Total Produk: <span id="totalProduk">0</span></p>
+
+  <p>Total Stok: <span id="totalStok">0</span></p>
+<p>Barang Masuk: <span id="totalMasuk">0</span></p>
+
+<p>Barang Terjual: <span id="totalKeluar">0</span></p>
+  
+  <p id="peringatanStok"></p>
+  
+<div class="kartu-grafik">
+  <h3>📊 Grafik Stok Produk</h3>
+  <p>Perbandingan jumlah stok setiap produk.</p>
+  <div id="grafikStok"></div>
+</div>
+  
+<button onclick="cadangkanData()">📦 Cadangkan Data</button>
+
+<input
+  type="file"
+  id="fileCadangan"
+  accept=".json,application/json"
+>
+<button onclick="pulihkanData()">📂 Pulihkan Data</button>
+ <h2>Riwayat Transaksi Stok</h2>
+<button onclick="hapusRiwayat()">
+  🗑️ Hapus Riwayat Transaksi
+</button>
+  <div id="riwayatStok"></div> 
+</div>
+
+  <div class="kartu">
+  <h3>Pengaturan Stok</h3>
+  <p>Mulai kembali pencatatan stok dari nol.</p>
+  <button type="button" onclick="resetSemuaStok()">
+    Reset Semua Stok ke 0
+  </button>
+  </div>
+  
+<h2>Stok Produk</h2>
+
+<label>Pilih jenis transaksi:</label>
+<select id="jenisTransaksi">
+  <option value="masuk">Barang Masuk</option>
+  <option value="keluar">Barang Terjual</option>
+</select>
+
+<br><br>
+
+<label>Pilih produk:</label>
+<select id="pilihProduk"></select>
+
+<br><br>
+
+<label>Jumlah barang:</label>
+<input type="number" id="jumlahStok" min="1" placeholder="Masukkan jumlah">
+
+<br><br>
+
+<button onclick="prosesStok()">Proses Stok</button>
+
+  
+<input
+  type="text"
+  id="cariProduk"
+  placeholder="Cari nama produk..."
+>
+<div id="daftarStok"></div>
+  
+  <hr>
+
+<h2>Perbandingan Keuntungan Produk</h2>
+<p>Bandingkan keuntungan beberapa produk.</p>
+
+<label>Nama Produk</label>
+<input id="namaProduk" type="text" placeholder="Contoh: Kaos">
+
+<label>Modal Produk (Rp)</label>
+<input id="modalBanding" type="number" placeholder="35000">
+
+<label>Harga Jual (Rp)</label>
+<input id="hargaBanding" type="number" placeholder="70000">
+
+<label>Biaya Platform (%)</label>
+<input id="biayaBanding" type="number" value="10">
+
+<label>Biaya Tambahan (Rp)</label>
+<input id="tambahanBanding" type="number" value="2000">
+
+<button onclick="bandingkanProduk()">
+  Tambahkan & Bandingkan
+</button>
+
+<div id="hasilBanding"
+     data-produk=""
+     style="margin-top:20px; padding:15px; background:#e8f4ff; border-radius:8px;">
+  Hasil perbandingan akan muncul di sini.
+</div>
+
+  <script>
+    function hitungUntung() {
+      let modal = Number(document.getElementById("modal").value);
+      let harga = Number(document.getElementById("harga").value);
+      let biaya = Number(document.getElementById("biaya").value);
+      let tambahan = Number(document.getElementById("tambahan").value);
+
+      if (modal <= 0 || harga <= 0 || biaya < 0 || biaya > 100 || tambahan < 0) {
+        document.getElementById("hasil").innerText =
+          "Masukkan angka yang benar pada semua kolom.";
+        return;
+      }
+
+      let biayaPlatform = harga * biaya / 100;
+      let untung = harga - modal - biayaPlatform - tambahan;
+
+      document.getElementById("hasil").innerHTML =
+        "Modal: " + rupiah(modal) + "<br>" +
+        "Biaya platform: " + rupiah(biayaPlatform) + "<br>" +
+        "Biaya tambahan: " + rupiah(tambahan) + "<br>" +
+        "<strong>Perkiraan keuntungan: " + rupiah(untung) + "</strong>";
+    }
+
+    function rupiah(angka) {
+      return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+      }).format(angka);
+    }
+    function bandingkanProduk() {
+  let nama = document.getElementById("namaProduk").value;
+  let modal = Number(document.getElementById("modalBanding").value);
+  let harga = Number(document.getElementById("hargaBanding").value);
+  let biaya = Number(document.getElementById("biayaBanding").value);
+  let tambahan = Number(document.getElementById("tambahanBanding").value);
+
+  if (nama.trim() === "" || modal <= 0 || harga <= 0 || biaya < 0 || biaya > 100 || tambahan < 0) {
+    document.getElementById("hasilBanding").innerText =
+      "Isi semua kolom dengan data yang benar.";
+    return;
+  }
+
+  let biayaPlatform = harga * biaya / 100;
+  let untung = harga - modal - biayaPlatform - tambahan;
+
+  let hasil = document.getElementById("hasilBanding");
+  let data = JSON.parse(hasil.dataset.produk || "[]");
+
+  data.push({
+    nama: nama,
+    untung: untung
+  });
+
+  data.sort((a, b) => b.untung - a.untung);
+  hasil.dataset.produk = JSON.stringify(data);
+
+      
+hasil.innerHTML =
+  "<strong>🏆 Peringkat Keuntungan Produk</strong>";
+
+data.forEach(function(p, i) {
+  
+hasil.innerHTML +=
+  `<div class="baris-hasil">
+    <span class="peringkat">
+      ${i + 1}. ${p.nama}
+    </span>
+    <p>Keuntungan:
+      <strong style="color: ${
+        p.untung > 0
+          ? '#15803d'
+          : p.untung < 0
+            ? '#dc2626'
+            : '#4b5563'
+      };">
+        ${rupiah(p.untung)}
+      </strong>
+    </p>
+    <p style="color: ${
+      p.untung > 0
+        ? '#15803d'
+        : p.untung < 0
+          ? '#dc2626'
+          : '#4b5563'
+    }; font-weight: bold;">
+      ${
+        p.untung > 0
+          ? '✅ PRODUK UNTUNG'
+          : p.untung < 0
+            ? '⚠️ PRODUK RUGI'
+            : '➖ IMPAS'
+      }
+    </p>
+  </div>`;
+});
+      
+    } 
+    const dataStokTersimpan = localStorage.getItem("rafaStok");
+
+const produkStok = dataStokTersimpan
+  ? JSON.parse(dataStokTersimpan)
+  : [
+      { nama: "Jaket", stok: 12 },
+      { nama: "Kaos", stok: 2 },
+      { nama: "Sepatu", stok: 1 },
+      { nama: "Tas", stok: 8 }
+    ];
+    
+let riwayatStok = JSON.parse(
+  localStorage.getItem("riwayatStok")
+) || [];
+    
+function perbaruiDashboard() {
+  document.getElementById("totalProduk").textContent =
+    produkStok.length;
+
+  let totalStok = 0;
+
+  for (let i = 0; i < produkStok.length; i++) {
+    totalStok += produkStok[i].stok;
+  }
+
+  document.getElementById("totalStok").textContent =
+    totalStok;
+
+  let stokMenipis = [];
+
+  for (let i = 0; i < produkStok.length; i++) {
+    if (produkStok[i].stok <= 3) {
+      stokMenipis.push(produkStok[i].nama);
+    }
+  }
+
+  document.getElementById("peringatanStok").textContent =
+    stokMenipis.length > 0
+      ? "Stok menipis: " + stokMenipis.join(", ")
+      : "Semua stok aman";
+  
+  // Perbarui grafik stok produk
+  const tempatGrafik = document.getElementById("grafikStok");
+
+  if (tempatGrafik) {
+    if (produkStok.length === 0) {
+      tempatGrafik.innerHTML = "<p>Belum ada produk.</p>";
+    } else {
+      const stokTerbesar = Math.max(
+        1,
+        ...produkStok.map(item => Number(item.stok) || 0)
+      );
+
+      tempatGrafik.innerHTML = produkStok.map(item => {
+        const jumlah = Number(item.stok) || 0;
+        const lebar = jumlah / stokTerbesar * 100;
+        const warna = jumlah <= 2 ? "#dc2626" : "#15803d";
+
+        return `
+          <div class="baris-grafik">
+            <div class="label-grafik">
+              <span>${item.nama}</span>
+              <strong>${jumlah} barang</strong>
+            </div>
+            <div class="latar-grafik">
+              <div class="batang-grafik"
+                style="width:${lebar}%;background:${warna};">
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+      }
+    }
+    
+  let totalMasuk = 0;
+let totalKeluar = 0;
+
+const waktuReset = localStorage.getItem("waktuResetStok");
+
+for (let i = 0; i < riwayatStok.length; i++) {
+const transaksi = riwayatStok[i];
+
+const waktuTransaksi = new Date(
+transaksi.waktu
+).getTime();
+
+const batasReset = waktuReset
+? new Date(waktuReset).getTime()
+: 0;
+
+if (
+!waktuReset ||
+(
+!isNaN(waktuTransaksi) &&
+waktuTransaksi > batasReset
+)
+) {
+if (transaksi.jenis === "masuk") {
+totalMasuk += transaksi.jumlah;
+} else if (transaksi.jenis === "keluar") {
+totalKeluar += transaksi.jumlah;
+}
+}
+    }
+
+  document.getElementById("totalMasuk").textContent =
+    totalMasuk;
+
+  document.getElementById("totalKeluar").textContent =
+    totalKeluar;
+  
+
+}
+
+function cadangkanData() {
+  const cadangan = {
+    produkStok: produkStok,
+    riwayatStok: riwayatStok
+  };
+
+  const dataJSON = JSON.stringify(cadangan, null, 2);
+
+  const file = new Blob(
+    [dataJSON],
+    { type: "application/json" }
+  );
+
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(file);
+  link.download = "cadangan-rafaseller.json";
+  link.click();
+
+  URL.revokeObjectURL(link.href);
+}
+    
+    
+async function pulihkanData() {
+  const input = document.getElementById("fileCadangan");
+  const file = input.files[0];
+
+  if (!file) {
+    alert("Pilih file cadangan terlebih dahulu!");
+    return;
+  }
+
+  try {
+    const teks = await file.text();
+    const data = JSON.parse(teks);
+
+    if (
+      !Array.isArray(data.produkStok) ||
+      !Array.isArray(data.riwayatStok)
+    ) {
+      alert("Format file cadangan tidak valid!");
+      return;
+    }
+
+    const yakin = confirm(
+      "Data produk dan riwayat saat ini akan diganti. Lanjutkan?"
+    );
+
+    if (!yakin) return;
+
+    produkStok.splice(
+  0,
+  produkStok.length,
+  ...data.produkStok
+);
+    riwayatStok = data.riwayatStok;
+
+    localStorage.setItem(
+      "rafaStok",
+      JSON.stringify(produkStok)
+    );
+
+    localStorage.setItem(
+      "riwayatStok",
+      JSON.stringify(riwayatStok)
+    );
+
+    tampilkanStok();
+    perbaruiDashboard();
+
+    alert("Data berhasil dipulihkan!");
+  } catch (error) {
+  alert("Penyebab error: " + error.message);
+      }
+    }
+    
+perbaruiDashboard();
+    
+    
+function tampilkanStok() {
+  
+const tempat = document.getElementById("daftarStok");
+const pilihanSebelumnya = localStorage.getItem("pilihanProduk");
+const pilihan = document.getElementById("pilihProduk");
+  
+  console.log("daftarStok:", tempat);
+console.log("pilihProduk:", pilihan);
+console.log("cariProduk:", document.getElementById("cariProduk"));
+console.log("riwayatStok:", document.getElementById("riwayatStok"));
+  
+pilihan.innerHTML = "";
+
+produkStok.forEach(function(item, index) {
+  pilihan.innerHTML +=
+    `<option value="${index}">${item.nama}</option>`;
+});
+
+if (
+  pilihanSebelumnya !== null &&
+  produkStok[Number(pilihanSebelumnya)]
+) {
+  pilihan.value = pilihanSebelumnya;
+}
+
+pilihan.addEventListener("change", function() {
+  localStorage.setItem("pilihanProduk", pilihan.value);
+});
+  const stokMenipis = [];
+
+tempat.innerHTML = "";
+
+const kolomCari = document.getElementById("cariProduk");
+const kataCari = kolomCari.value.toLowerCase().trim();
+
+produkStok.forEach(function(item) {
+  
+
+if (item.nama.toLowerCase().includes(kataCari)) {
+  tempat.innerHTML +=
+    `<div class="kartu-produk">
+      <h3>${item.nama}</h3>
+
+      <p>📦 Stok: <strong>${item.stok}</strong></p>
+
+      <p>💰 Harga Modal: ${
+        item.modal ? rupiah(item.modal) : "Belum diisi"
+      }</p>
+
+      <p>🏷️ Harga Jual: ${
+        item.harga ? rupiah(item.harga) : "Belum diisi"
+      }</p>
+
+      <button onclick="editProduk(${produkStok.indexOf(item)})">
+        ✏️ Edit Produk
+      </button>
+
+      ${
+        item.jenis === "contoh"
+          ? `<button onclick="hapusProduk(${produkStok.indexOf(item)})">
+               🗑️ Hapus Produk Contoh
+             </button>`
+          : `<button onclick="hapusProdukUtama(${produkStok.indexOf(item)})">
+               🔒 Hapus Produk Utama
+             </button>`
+      }
+    </div>`;
+    }
+  
+
+  if (item.stok <= 2) {
+    stokMenipis.push(item);
+  }
+});
+  
+  
+  tempat.innerHTML += "<h3>⚠️ Peringatan Stok Menipis</h3>";
+
+  stokMenipis.forEach(function(item) {
+    tempat.innerHTML +=
+      `<p>${item.nama} — Stok tersisa ${item.stok}!</p>`;
+  });
+
+const tempatRiwayat = document.getElementById("riwayatStok");
+tempatRiwayat.innerHTML = "";
+
+riwayatStok.forEach(function(transaksi) {
+  tempatRiwayat.innerHTML +=
+    `<p>${transaksi.waktu} — ${transaksi.nama} — ${transaksi.jenis} — ${transaksi.jumlah} barang</p>`;
+});
+  
+}
+
+document.getElementById("cariProduk").addEventListener("input", function() {
+  tampilkanStok();
+});
+            
+tampilkanStok();
+  
+function tambahProdukBaru() {
+  const inputNama = document.getElementById("namaProdukBaru");
+  const inputStok = document.getElementById("stokAwalBaru");
+  const pesan = document.getElementById("pesanProduk");
+const inputJenis = document.getElementById("jenisProdukBaru");
+  const nama = inputNama.value.trim();
+  const stok = Number(inputStok.value);
+const inputModal = document.getElementById("modalProdukBaru");
+const inputHarga = document.getElementById("hargaProdukBaru");
+
+const modal = Number(inputModal.value);
+const harga = Number(inputHarga.value);
+  if (nama === "") {
+    pesan.textContent = "Nama produk wajib diisi!";
+    return;
+  }
+
+  if (
+    inputStok.value.trim() === "" ||
+    !Number.isInteger(stok) ||
+    stok < 0
+  ) {
+    pesan.textContent = "Stok harus berupa bilangan bulat minimal 0!";
+    return;
+  }
+if (
+  inputModal.value.trim() === "" ||
+  !Number.isInteger(modal) ||
+  modal <= 0
+) {
+  pesan.textContent = "Harga modal harus berupa bilangan bulat lebih dari 0!";
+  return;
+}
+
+if (
+  inputHarga.value.trim() === "" ||
+  !Number.isInteger(harga) ||
+  harga <= 0
+) {
+  pesan.textContent = "Harga jual harus berupa bilangan bulat lebih dari 0!";
+  return;
+}
+  
+  const sudahAda = produkStok.some(function(item) {
+    return item.nama.toLowerCase() === nama.toLowerCase();
+  });
+
+  if (sudahAda) {
+    pesan.textContent = "Nama produk sudah ada!";
+    return;
+  }
+
+  produkStok.push({
+  nama: nama,
+  stok: stok,
+  modal: modal,
+  harga: harga,
+  jenis: inputJenis.value
+});
+
+  localStorage.setItem(
+    "rafaStok",
+    JSON.stringify(produkStok)
+  );
+inputNama.value = "";
+inputStok.value = "";
+inputModal.value = "";
+inputHarga.value = "";
+inputJenis.value = "utama";
+  
+  tampilkanStok();
+  perbaruiDashboard();
+
+  pesan.textContent = "Produk berhasil ditambahkan!";
+}
+    
+   
+function prosesStok() {
+  const pilihan = document.getElementById("pilihProduk");
+  const jenis = document.getElementById("jenisTransaksi").value;
+  const jumlah = Number(document.getElementById("jumlahStok").value);
+  const index = Number(pilihan.value);
+  const item = produkStok[index];
+  if (!item) {
+  alert("Produk tidak ditemukan!");
+  return;
+  }
+  
+if (
+  !Number.isInteger(jumlah) ||
+  jumlah < 1
+) {
+  alert("Masukkan jumlah barang bulat yang benar!");
+  return;
+}
+  
+
+  if (jenis === "masuk") {
+    item.stok += jumlah;
+  } else {
+    if (jumlah > item.stok) {
+      alert("Stok tidak cukup!");
+      return;
+    }
+
+    item.stok -= jumlah;
+  }
+riwayatStok.push({
+  nama: item.nama,
+  jenis: jenis,
+  jumlah: jumlah,
+  waktu: new Date().toISOString()
+});
+
+localStorage.setItem(
+  "riwayatStok",
+  JSON.stringify(riwayatStok)
+);
+  document.getElementById("jumlahStok").value = "";
+  
+localStorage.setItem(
+  "rafaStok",
+  JSON.stringify(produkStok)
+);
+  
+  tampilkanStok();
+  perbaruiDashboard();
+  alert("Transaksi stok berhasil!");
+}
+    function resetSemuaStok() {
+const yakin = confirm(
+"Yakin ingin mengatur semua stok menjadi 0?"
+);
+
+if (!yakin) {
+return;
+}
+
+produkStok.forEach(function(item) {
+item.stok = 0;
+});
+
+localStorage.setItem(
+"rafaStok",
+JSON.stringify(produkStok)
+);
+localStorage.setItem(
+  "waktuResetStok",
+  new Date().toISOString()
+);
+tampilkanStok();
+perbaruiDashboard();
+
+alert("Semua stok berhasil direset menjadi 0!");
+  }
+      function hapusRiwayat() {
+  const yakin = confirm(
+    "Yakin ingin menghapus semua riwayat transaksi?"
+  );
+
+  if (!yakin) return;
+
+  riwayatStok = [];
+
+  localStorage.setItem(
+    "riwayatStok",
+    JSON.stringify(riwayatStok)
+  );
+
+  tampilkanStok();
+
+  alert("Riwayat transaksi berhasil dihapus!");
+    }  
+    
+function hapusProduk(index) {
+  const item = produkStok[index];
+
+  if (!item) return;
+
+  if (item.jenis !== "contoh") {
+    alert("Produk utama tidak boleh dihapus lewat tombol ini!");
+    return;
+  }
+
+  const yakin = confirm(
+    "Hapus produk contoh " + item.nama + "?"
+  );
+
+  if (!yakin) return;
+
+  produkStok.splice(index, 1);
+
+  localStorage.setItem(
+    "rafaStok",
+    JSON.stringify(produkStok)
+  );
+
+  tampilkanStok();
+  perbaruiDashboard();
+
+  alert("Produk contoh berhasil dihapus!");
+    }
+   
+function hapusProdukUtama(index) {
+  const item = produkStok[index];
+
+  if (!item) return;
+
+  if (item.jenis === "contoh") {
+    alert("Produk contoh gunakan tombol hapus contoh!");
+    return;
+  }
+
+  const yakin = confirm(
+    "PERINGATAN!\nHapus produk utama: " + item.nama +
+    "?\nProduk ini akan dihapus dari daftar stok."
+  );
+
+  if (!yakin) return;
+
+  const konfirmasiKedua = confirm(
+    "Yakin sekali ingin menghapus " + item.nama + "?"
+  );
+
+  if (!konfirmasiKedua) return;
+
+  produkStok.splice(index, 1);
+
+  localStorage.setItem(
+    "rafaStok",
+    JSON.stringify(produkStok)
+  );
+
+  tampilkanStok();
+  perbaruiDashboard();
+
+  alert("Produk utama berhasil dihapus!");
+  }
+  
+  
+function editProduk(index) {
+  const item = produkStok[index];
+
+  if (!item) return;
+
+  const namaBaru = prompt("Ubah nama produk:", item.nama);
+  if (namaBaru === null) return;
+
+  const stokBaru = prompt("Ubah jumlah stok:", item.stok);
+  if (stokBaru === null) return;
+
+  const modalBaru = prompt("Ubah harga modal:", item.modal || 0);
+  if (modalBaru === null) return;
+
+  const hargaBaru = prompt("Ubah harga jual:", item.harga || 0);
+  if (hargaBaru === null) return;
+
+  const nama = namaBaru.trim();
+  const stok = Number(stokBaru);
+  const modal = Number(modalBaru);
+  const harga = Number(hargaBaru);
+
+  if (
+    !nama ||
+    !Number.isInteger(stok) || stok < 0 ||
+    !Number.isInteger(modal) || modal <= 0 ||
+    !Number.isInteger(harga) || harga <= 0
+  ) {
+    alert("Data tidak valid. Periksa kembali!");
+    return;
+  }
+
+  const namaGanda = produkStok.some((produk, i) =>
+    i !== index &&
+    produk.nama.trim().toLowerCase() === nama.toLowerCase()
+  );
+
+  if (namaGanda) {
+    alert("Nama produk sudah digunakan!");
+    return;
+  }
+
+  const stokLama = item.stok;
+  const namaLama = item.nama;
+
+  // Catat perubahan stok jika jumlahnya berubah
+  if (stok !== stokLama) {
+    riwayatStok.push({
+      nama: nama,
+      jenis: "penyesuaian",
+      jumlah: Math.abs(stok - stokLama),
+      stokSebelum: stokLama,
+      stokSesudah: stok,
+      waktu: new Date().toISOString()
+    });
+  }
+
+  item.nama = nama;
+  item.stok = stok;
+  item.modal = modal;
+  item.harga = harga;
+
+  localStorage.setItem(
+    "rafaStok",
+    JSON.stringify(produkStok)
+  );
+
+  localStorage.setItem(
+    "riwayatStok",
+    JSON.stringify(riwayatStok)
+  );
+
+  tampilkanStok();
+  perbaruiDashboard();
+
+  alert("Produk berhasil diperbarui!");
+    }
+  
+
+  </script>
+</body>
+</html>
