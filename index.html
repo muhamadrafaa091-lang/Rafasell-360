@@ -1582,5 +1582,14 @@ function editProduk(index) {
   
 
   </script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(() => console.log('RAFASELL 360 siap'))
+      .catch(error => console.error('Service Worker gagal:', error));
+  });
+}
+</script>
 </body>
 </html>
