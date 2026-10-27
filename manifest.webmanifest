@@ -1,0 +1,14 @@
+﻿{
+  "background_color": "#ffffff",
+  "dir": "auto",
+  "display": "standalone",
+  "name": "RafaSell 360",
+  "orientation": "portrait",
+  "scope": "https://muhamadrafaa091-lang.github.io/Rafasell-360/",
+  "short_name": "RafaSell",
+  "start_url": "https://muhamadrafaa091-lang.github.io/Rafasell-360/",
+  "theme_color": "#ffffff",
+  "id": "rafasell-305",
+  "description": "RAFASELL – Aplikasi manajemen bisnis digital untuk mengelola stok, produk, penjualan, dan perkembangan usaha dalam satu platform.",
+  "lang": "id"
+}
